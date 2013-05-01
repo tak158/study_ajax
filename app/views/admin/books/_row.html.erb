@@ -1,0 +1,10 @@
+      
+        <td><%= image_tag @book.icon_path %></td>
+        <td><%= @book.title %></td>
+        <td><%= @book.author %></td>
+        <td><%= yen @book.price %></td>
+        <td>
+          <%= link_to '詳細', admin_book_path(@book), remote: true, class: 'show_button btn btn-small' %>
+          <%= link_to '編集', edit_admin_book_path(@book), remote: true, class: 'edit_button btn btn-small btn-primary' %>
+          <%= link_to '削除', admin_book_path(@book), method: :delete, data: { confirm: "「#{@book.title}」を削除しますか?" }, class: 'btn btn-small btn-danger' %>
+        </td>

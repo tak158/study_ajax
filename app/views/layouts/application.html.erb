@@ -1,0 +1,54 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= content_for?(:title) ? yield(:title) : "BookStore" %></title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <%= stylesheet_link_tag "application", media: "all" %>
+    <%= javascript_include_tag "application" %>
+    <%= csrf_meta_tags %>
+    <%= yield(:head) %>
+  </head>
+  <body>
+    <header class="navbar navbar-fixed-top">
+      <nav class="navbar-inner">
+        <div class="container">
+          <%= link_to "BookStore", root_path, class: 'brand' %>
+          <ul class="pull-right nav">
+            <li><a><strong><%= customer_signed_in? ? current_customer.name + " 様" : "" %></a></strong></li>
+            <% if customer_signed_in? %>
+            <li><%= link_to "カート表示", carts_path  %></li>
+            <li><%= link_to "ログアウト", destroy_customer_session_path, method: :delete %></li>
+            <% else %>
+            <li><%= link_to "ログイン", new_customer_session_path %></li>
+            <% end %>
+          </ul>
+        </div>
+      </nav>
+    </header>
+    <div id="main" role="main">
+      <div class="container">
+        <div class="content">
+           <div class="row">
+            <div class="span12">
+              <% flash.each do |name, msg| %>
+                <% if msg.is_a?(String) %>
+                  <div class="alert alert-<%= name == :notice ? "success" : "error" %>">
+                    <a class="close" data-dismiss="alert">&#215;</a>
+                    <%= content_tag :div, msg, id: "flash_#{name}" %>
+                  </div>
+                <% end %>
+              <% end %>
+
+              <%= yield %>
+            </div>
+          </div>
+          <footer>
+          </footer>
+        </div>
+      </div> <!--! end of .container -->
+    </div> <!--! end of #main -->
+  </body>
+</html>

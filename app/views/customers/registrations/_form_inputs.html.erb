@@ -1,0 +1,50 @@
+  <div class="control-group">
+    <%= f.label :email, "e-mail", :class => 'control-label' %>
+    <div class="controls">
+      <%= f.email_field :email, :class => 'text_field' %>
+    </div>
+  </div>
+  <% if is_edit %>
+  <div class="control-group">
+    <%= f.label :current_password, "現在のパスワード", :class => 'control-label' %>
+    <div class="controls">
+      <%= f.password_field :current_password, :class => 'text_field' %>
+    </div>
+  </div>
+  <% end %>
+  <div class="control-group">
+    <%= f.label :password, "新パスワード", :class => 'control-label' %>
+    <div class="controls">
+      <%= f.password_field :password, :autocomplete => "off", :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :password_confirmation, "新パスワード(確認)", :class => 'control-label' %>
+    <div class="controls">
+      <%= f.password_field :password_confirmation, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :name, "名前", :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :name, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :zip, "郵便番号", :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :zip, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :address, "住所", :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :address, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :tel, "電話番号", :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :tel, :class => 'text_field' %>
+    </div>
+  </div>

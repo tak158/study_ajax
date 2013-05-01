@@ -1,0 +1,8 @@
+ja:
+  views:
+    pagination:
+      first: "<i class='icon-fast-backward'></i>"
+      last: "<i class='icon-fast-forward'></i>"
+      previous: "<i class='icon-arrow-left'></i>"
+      next: "<i class='icon-arrow-right'></i>"
+      truncate: "..."
